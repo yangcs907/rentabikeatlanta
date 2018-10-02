@@ -47,6 +47,10 @@ class Lender extends Component {
     });
   };
 
+  getCurrentListings = event => {
+    
+  }
+
   login = () => {
     this.setState({ loggedIn: true});
   }
