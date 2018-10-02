@@ -1,15 +1,17 @@
 import React, { Component } from "react";
 import "../index.css";
 import firebase from "./firebase.js";
+import LenderControl from "./LenderControl.js";
 
 class Lender extends Component {
   constructor(props) {
-    super();
+    super(props);
     this.state = {
       name: "",
       email: "",
       location: "",
       phone: "",
+      price: "",
       loggedIn: false,
       newUser: "",
       newpassword: "",
@@ -36,14 +38,16 @@ class Lender extends Component {
       email: this.state.email,
       location: this.state.location,
       phone: this.state.phone,
-      availability: true
+      price: this.state.price,
+      availability: "available"
     }
     listingRef.push(listing);
     this.setState({
       name: "",
       email: "",
       location: "",
-      phone: ""
+      phone: "",
+      price: ""
     });
   };
 
@@ -69,6 +73,7 @@ class Lender extends Component {
     console.log(this.state.location);
     console.log(this.state.phone);
   };
+
   render() {
     const nameState = this.state.name;
     const emailState = this.state.email;
@@ -98,6 +103,7 @@ class Lender extends Component {
     } else {
       login = <a id="noSearch">Login</a>
     }
+
     if(this.state.loggedIn) {
     return (
       <div className="lenderPage">
@@ -141,6 +147,17 @@ class Lender extends Component {
                   type="text"
                   class="validate"
                   value={this.state.phone}
+                  onChange={this.handleInputChange}
+                  />
+              </div>
+              <div class="input-field col s12">
+                <input
+                  placeholder="Hourly Rate $$"
+                  name="price"
+                  id="price"
+                  type="text"
+                  class="validate"
+                  value={this.state.price}
                   onChange={this.handleInputChange}
                   />
               </div>
@@ -243,6 +260,9 @@ class Lender extends Component {
         </div>
         <div className="col s12 m6">
           <h4>Current Bikes</h4>
+          <LenderControl
+            currentUser = {this.state.currentUser}
+            />
 
         </div>
       </div>

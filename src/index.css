@@ -58,14 +58,16 @@ body {
 .learnMore {
   font-family: "Dosis", sans-serif;
   font-size: 16px;
+  height: 250px;
   width: 100%;
-  max-width: 100%;
   position: fixed;
+  max-width: 100%;
   top:0;
   padding: 50px;
   padding-top: 20px;
   color: black;
   opacity: 1.0;
+  background-color: rgba(255,255,255,0.7);
 }
 .mainPage {
   font-family: "Dosis", sans-serif;
