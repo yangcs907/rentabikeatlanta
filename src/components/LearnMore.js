@@ -13,8 +13,8 @@ class LearnMore extends Component {
             <a className="learnMoreButton" id="hideLearnMoreButton" onClick={this.props.hideLearnMore}><i className="far fa-times-circle"></i></a>
             </div>
       <p>Love to bike your way around Atlanta? Rent a Bike allows anyone to be able to
-           search for a bike no matter their location! Simply search, locate, and reserve
-           your bike for a set amount of time. Pick the bike up from one of our many bike reservation
+           search for a bike no matter their location! Simply search, locate, and rent your bike for an hourly rate.
+           Pick the bike up from one of our many bike reservation
            stations, and return when done. It is that simple!
         </p>
         <br></br>

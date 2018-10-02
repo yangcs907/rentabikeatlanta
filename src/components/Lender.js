@@ -3,6 +3,9 @@ import "../index.css";
 import firebase from "./firebase.js";
 import LenderControl from "./LenderControl.js";
 
+const usernameStyle = {
+  paddingLeft: "0px"
+};
 class Lender extends Component {
   constructor(props) {
     super(props);
@@ -98,7 +101,7 @@ class Lender extends Component {
     }
 
     let login
-    if (currentUserState && passwordState) {
+    if (currentUserState) {
       login = <a onClick={this.login} id="searchButton">Login</a>
     } else {
       login = <a id="noSearch">Login</a>
@@ -275,35 +278,10 @@ class Lender extends Component {
             <a href="/"><i className="fas fa-arrow-left"></i>&nbsp;Back</a>
         </div>
         <div className="row">
-          <div className="col s12 m6">
-      <h5>New User? Create an Account Below</h5>
-        <div class="input-field col s12">
-          <input
-            placeholder="Please enter a username"
-            name="newUser"
-            id="newUser"
-            type="text"
-            class="validate"
-            value={this.state.newUser}
-            onChange={this.handleInputChange}
-            />
-        </div>
-        <div class="input-field col s12">
-          <input
-            placeholder="Please create a password"
-            name="newpassword"
-            id="newpassword"
-            type="password"
-            class="validate"
-            value={this.state.newpassword}
-            onChange={this.handleInputChange}
-            />
-        </div>
-          {create}
-      </div>
-      <div className="col s12 m6">
-        <h5>Returning User? Log in below</h5>
-          <div class="input-field col s12">
+      <div className="col s12 m12">
+        <h5>Enter a Username</h5>
+        <p>Already have a listing? Enter your previous username to manage your bikes</p>
+          <div class="input-field col s12" style={usernameStyle}>
             <input
               placeholder="Please enter your username"
               name="currentUser"
@@ -311,17 +289,6 @@ class Lender extends Component {
               type="text"
               class="validate"
               value={this.state.currentUser}
-              onChange={this.handleInputChange}
-              />
-          </div>
-          <div class="input-field col s12">
-            <input
-              placeholder="Please enter your password"
-              name="password"
-              id="password"
-              type="password"
-              class="validate"
-              value={this.state.password}
               onChange={this.handleInputChange}
               />
           </div>

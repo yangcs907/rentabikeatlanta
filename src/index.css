@@ -86,8 +86,11 @@ body {
   padding: 20px;
   font-family: "Dosis", sans-serif;
 }
-.searchPage p {
-  padding-left: 12px;
+.searchPage h5 {
+  padding-left: 25px;
+}
+.searchPage h4 {
+  padding-left: 0px;
 }
 input {
   font-family: "Dosis", sans-serif !important;
@@ -157,6 +160,15 @@ input {
 #hideLocations:hover {
   font-size: 21px;
   font-weight: bold;
+}
+.listingHead h4 {
+  padding-left: 0px;
+}
+.ListingContainer {
+  font-size: 18px;
+  border-bottom-style: solid;
+  border-width: 1px;
+  padding: 15px;
 }
 .bottom {
   padding: 25px;

@@ -1,14 +1,18 @@
 import React, { Component } from "react";
 import "../index.css";
+import SearchAll from "./SearchAll.js";
+import SearchResults from "./SearchResults.js";
+import firebase from "./firebase.js";
+
 
 class Search extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      name: "",
       location: "",
-      email: "",
-      phone: ""
+      searchAll: false,
+      searchResults: false,
+      searchAgain: false
     };
   };
   handleInputChange = event => {
@@ -19,30 +23,49 @@ class Search extends Component {
       [name]: value
     });
   };
-  checkState = () => {
-    console.log(this.state.name);
-    console.log(this.state.location);
-    console.log(this.state.email);
-    console.log(this.state.phone);
+
+  searchAllFunction = () => {
+    this.setState({
+      searchAll: true,
+      searchResults: false
+    });
   };
-  // loadSearchResults = () => {
-  //   API.getResults()
-  //     .then(res=>
-  //     this.setState({ name: res.data })
-  //   )
-  //     .catch(err => console.log(err));
-  // };
+
+  searchResultsFunction = () => {
+    this.setState({
+      searchAll: false,
+      searchResults: true,
+      searchAgain: true
+    });
+
+    };
+
+
+
   render() {
-    const nameState = this.state.name;
     const locationState = this.state.location;
-    const emailState = this.state.email;
-    const phoneState = this.state.phone;
+    const updateSearchResultsState = this.state.updateSearchResults;
+    const searchAgainState = this.state.searchAgain;
 
     let search
-    if (nameState && locationState && emailState && phoneState) {
-      search = <a onClick={this.checkState} id="searchButton">Search</a>
+    if (locationState && !searchAgainState) {
+      search = <a onClick={this.searchResultsFunction} id="searchButton">Search by Station</a>
+    } else if (searchAgainState) {
+      search = <a id="noSearch">Search by Station</a>
     } else {
-      search = <a id="noSearch">Search</a>
+      search = <a id="noSearch">Search by Station</a>
+    }
+
+    let results
+    if (this.state.searchResults) {
+      results = <SearchResults
+        location = {this.state.location}
+        update = {this.state.updateSearchResults}
+        />
+    } else if (this.state.searchAll) {
+      results = <SearchAll />
+    } else {
+      results = ""
     }
     return (
       <div className="searchPage">
@@ -52,41 +75,8 @@ class Search extends Component {
             <a href="/"><i className="fas fa-arrow-left"></i>&nbsp;Back</a>
             <form>
               <div class="row">
-                <div class="input-field col s12">
-                  <input
-                    placeholder="Please enter your full name"
-                    name="name"
-                    id="name"
-                    type="text"
-                    class="validate"
-                    value={this.state.name}
-                    onChange={this.handleInputChange}
-                    />
-                </div>
-                <div class="input-field col s12">
-                  <input
-                    placeholder="Please enter your email address"
-                    name="email"
-                    id="email"
-                    type="email"
-                    class="validate"
-                    value={this.state.email}
-                    onChange={this.handleInputChange}
-                    />
-                </div>
-                <div class="input-field col s12">
-                  <input
-                    placeholder="Please enter your phone number"
-                    name="phone"
-                    id="phone"
-                    type="text"
-                    class="validate"
-                    value={this.state.phone}
-                    onChange={this.handleInputChange}
-                    />
-                </div>
-                <p>Select a Bike Station to Pick Up Your Bike</p>
                 <div className="row">
+                  <h5>Search By Bike Station</h5>
                 <div class="input-field col s3">
                   <label>
                     <input
@@ -181,10 +171,12 @@ class Search extends Component {
               </div>
               {search}
             </form>
+            <h5>Or</h5>
+            <br></br>
+            <a onClick={this.searchAllFunction} id="searchButton">Search All Available Bikes</a>
           </div>
           <div className="col s12 m6">
-            <h4>Available Bikes</h4>
-
+            {results}
           </div>
         </div>
       </div>

@@ -2,22 +2,24 @@ import React, { Component } from "react";
 import "../index.css";
 import firebase from "./firebase.js";
 
-class LenderControl extends Component {
+const bold = {
+  fontWeight: "bold"
+};
+
+class SearchResults extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      currentUser: this.props.currentUser,
       name: [],
-      location: "",
-      email: "",
-      price: ""
+      location: this.props.location,
+      updateSearchResults: ""
     }
   };
   componentDidMount() {
-    const user = this.state.currentUser;
+    const location = this.state.location;
     const listingsRef = firebase.database().ref("listings");
-    const listingsUserRef = listingsRef.orderByChild("user").equalTo(user);
-    listingsUserRef.on("value", (snapshot) => {
+    const listingsLocationRef = listingsRef.orderByChild("location").equalTo(location);
+    listingsLocationRef.on("value", (snapshot) => {
       let listings = snapshot.val();
       let newState = [];
       for (let name in listings) {
@@ -32,9 +34,6 @@ class LenderControl extends Component {
           user: listings[name].user
         });
       }
-      let filteredState = newState.filter(user => {
-        return user = this.state.currentUser;
-      });
       this.setState({
         name: newState
       });
@@ -42,28 +41,26 @@ class LenderControl extends Component {
     });
   };
 
-  removeListing = (id) => {
-    const refRemove = firebase.database().ref(`/listings/${id}`);
-    refRemove.remove();
-  };
+
+
 
   render() {
     return (
-      <div>
-      <h5>{this.props.currentUser}, below are the bikes you have listed</h5>
+      <div className="listingHead">
+      <h4>{this.props.currentUser}Available Bikes</h4>
+      <p>For {this.props.location} Bike Station</p>
+      <a href="/Search" id="searchButton">Do another search</a>
       {this.state.name.map(name => (
           <div className="ListingContainer">
             <div className="row">
               <div className="col s12 m12">
-            <p>Username: {name.user}</p>
-            <p>Station: {name.location}</p>
+            <p style={bold}>Station: {name.location}</p>
             <p>Name: {name.name}</p>
             <p>Hourly Rate: {name.price}</p>
             <p>Email: {name.email}</p>
             <p>Phone: {name.phone}</p>
             <p>Availability: {name.availability}</p>
-            <p>ID: {name.id}</p>
-            <a onClick={() => this.removeListing(name.id)} id="searchButton">Remove Listing</a>
+              <a href="mailto:" id="searchButton">Contact {name.name}</a>
             </div>
           </div>
         </div>
@@ -73,7 +70,7 @@ class LenderControl extends Component {
   };
 };
 
-export default LenderControl;
+export default SearchResults;
 
 // <div>
 //   {this.state.name.map(name => (

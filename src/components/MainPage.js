@@ -28,7 +28,6 @@ class MainPage extends Component {
     <a href="/Lender" className="mainPageButton">Rent Your Bike Out</a>
       </div>
         </div>
-        <a href="/Test">TEST</a>
       </div>
     )
   }
