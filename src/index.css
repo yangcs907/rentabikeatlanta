@@ -1,0 +1,176 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    justify-content: center;
+}
+
+html,
+body {
+  width: 100%;
+    min-height: 100%;
+    /*background-image: url("./images/floral1.jpg");*/
+    /* background-image: url("./images/georgia.jpg"); */
+    /*background-image: url("./images/beach-child-clouds.jpg");*/
+    /* background-color: #fff8ee; */
+    background-color: white;
+}
+.topContainer {
+  max-width: 100%;
+  height: 300px;
+  background-image: url("./images/bikes2.jpg");
+  background-size: cover;
+  background-position: center; */
+  top: 0;
+  /* background-color: black; */
+}
+.topContainerLearnMore {
+  opacity: 0.3;
+}
+#logo {
+  color: white;
+  padding: 25px;
+  padding-left: 50px;
+  font-family: "Dosis", sans-serif;
+}
+#logo h4 {
+  font-size: 50px;
+}
+#logo p {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+#logo a {
+  color: white;
+}
+.learnMoreButton {
+  color: #0685e5;
+  cursor: pointer;
+  font-size: 20px;
+}
+.learnMoreButton:hover {
+  font-weight: bold;
+  font-size: 21px;
+}
+#hideLearnMoreButton {
+  float: right;
+}
+.learnMore {
+  font-family: "Dosis", sans-serif;
+  font-size: 16px;
+  width: 100%;
+  max-width: 100%;
+  position: fixed;
+  top:0;
+  padding: 50px;
+  padding-top: 20px;
+  color: black;
+  opacity: 1.0;
+}
+.mainPage {
+  font-family: "Dosis", sans-serif;
+  text-align: center;
+  max-width: 100%;
+}
+.mainPageButton {
+  font-size: 20px;
+}
+.mainPageButton:hover {
+  font-weight: bold;
+  font-size: 21px;
+}
+.searchPage {
+  padding: 20px;
+  font-family: "Dosis", sans-serif;
+}
+.searchPage p {
+  padding-left: 12px;
+}
+input {
+  font-family: "Dosis", sans-serif !important;
+  font-size: 22px !important;
+}
+#searchButton {
+  font-size: 20px;
+  cursor: pointer;
+}
+#searchButton:hover {
+  font-size: 21px;
+  font-weight: bold;
+}
+#noSearch {
+  font-size: 20px;
+  opacity: 0.5;
+}
+#loginPageTitle {
+  text-align: center;
+  padding: 10px;
+}
+.login {
+  font-family: "Dosis", sans-serif;
+  padding: 20px;
+}
+.lenderPage {
+  font-family: "Dosis", sans-serif;
+  padding: 20px;
+}
+.lenderPage p {
+  padding-left: 12px;
+}
+#lenderPageTitle {
+  text-align: center;
+}
+.locationContainer {
+  font-family: "Dosis", sans-serif;
+  text-align: center;
+  margin-top: 50px;
+  padding: 20px;
+  border-top-style: solid;
+  border-width: 1px;
+  border-color: rgba(158,158,158,1);
+}
+.locationsShow {
+  text-align: left;
+  margin-top: 20px;
+}
+.locationsHide {
+  display: none;
+}
+#locationsButton {
+  font-size: 20px;
+  cursor: pointer;
+}
+#locationsButton:hover {
+  font-size: 21px;
+  font-weight: bold;
+}
+#hideRow {
+  text-align: right;
+}
+#hideLocations {
+  font-size: 20px;
+  cursor: pointer;
+}
+#hideLocations:hover {
+  font-size: 21px;
+  font-weight: bold;
+}
+.bottom {
+  padding: 25px;
+  font-family: "Dosis", sans-serif;
+  border-top-style: solid;
+  border-width: 1px;
+  border-color: rgba(158,158,158,1);
+}
+#socialMediaRow {
+  padding-top: 20px;
+  padding-left: 20px;
+}
+#socialMedia {
+  color: rgba(0,0,0,0.7);
+  font-size: 30px;
+}
+#socialMedia:hover {
+  font-size: 31px;
+  font-weight:bold;
+}
