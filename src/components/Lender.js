@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "../index.css";
-import firebase from "./firebase.js";
+import firebase from "../Firebase.js";
 
 class Lender extends Component {
   constructor(props) {
@@ -48,7 +48,7 @@ class Lender extends Component {
   };
 
   getCurrentListings = event => {
-    
+
   }
 
   login = () => {
