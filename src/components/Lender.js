@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "../index.css";
-import firebase from "../Firebase.js";
+import firebase from "./firebase.js";
 
 class Lender extends Component {
   constructor(props) {
