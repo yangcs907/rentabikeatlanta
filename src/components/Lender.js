@@ -80,23 +80,23 @@ class Lender extends Component {
 
     let submit
     if (nameState && emailState && locationState && phoneState) {
-      submit = <a onClick={this.handleListingSubmit} id="searchButton">Submit</a>
+      submit = <a onClick={this.handleListingSubmit} id="searchButton" href="">Submit</a>
     } else {
-      submit = <a id="noSearch">Submit</a>
+      submit = <a id="noSearch" href="">Submit</a>
     };
 
     let create
     if (newUserState && passwordState) {
-      create = <a onClick={this.checkNewUserCreation} id="searchButton">Create</a>
+      create = <a onClick={this.checkNewUserCreation} id="searchButton" href="">Create</a>
     } else {
-      create = <a id="noSearch">Create</a>
+      create = <a id="noSearch" href="">Create</a>
     }
 
     let login
     if (currentUserState && passwordState) {
-      login = <a onClick={this.login} id="searchButton">Login</a>
+      login = <a onClick={this.login} id="searchButton" href="">Login</a>
     } else {
-      login = <a id="noSearch">Login</a>
+      login = <a id="noSearch" href="">Login</a>
     }
     if(this.state.loggedIn) {
     return (
@@ -310,7 +310,7 @@ class Lender extends Component {
       </div>
     </div>
     );
-  };
+  }
   };
 };
 
